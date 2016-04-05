@@ -48,3 +48,5 @@ O pino de saída que indica overflow deverá ter valor 1 caso o mesmo ocorra, e 
 
 - Se na soma de dois números positivos o resultado dá negativo ocorre overflow.
 - Se na soma de dois números negativos o resultado dá positivo ocorre overflow.
+
+http://ba.mirror.garr.it/1/groundup/arithmetic_logic_unit.html http://alex9ufoexploer.blogspot.com.br/2013/12/how-do-computers-do-math.html
