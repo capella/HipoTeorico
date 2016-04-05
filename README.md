@@ -50,7 +50,28 @@ O pino de saída que indica overflow deverá ter valor 1 caso o mesmo ocorra, e 
 - Se na soma de dois números negativos o resultado dá positivo ocorre overflow.
 
 ### Circuito
+O circuito é dividido em 3 partes: uma para a soma e subtração, uma para a multiplicação e divisão e uma para o seletor de saída.
 
-![Imagem base do circuito.png](circuito.png)
+![Imagem base do circuito](circuito.png)
+
+#### Soma e subtração
+As duas operações ficam na mesma parte do circuito por serem operações irmãs. Em ambas ocorre a soma de 8 bits, porém na operação de subtração o sinal do operando B é trocado (SC - signal change), e isto é controlado pelo valor de C1 (derivado das operações do seletor de saída que vale 1 para subtração e 0 para soma) na entrada do demultiplexador acoplado a B na parte de soma e subtração. Após a troca de sinal (ou não), é realizada a soma de 8 bits que retorna se houve overflow ou não (OF01) e o resultado da operação (R01).
+
+##### Circuito da soma de 8 bits
+![Somador de 8 bits](S8.png)
+
+O circuito da soma de 8 bits é formado por uma cadeia de operações de soma de 1 bit (full adder) onde cada operação retorna o valor de um bit da resposta. Ao final verifica se houveram ocasiões de overflow (soma de dois positivos que deram resultado negativo ou de dois negativos que deram resultado positivo).
+
+![Full adder](S1.png)
+
+#### Multiplicação
+
+##### Circuito da multiplicação
+
+#### Divisão
+
+##### Circuito da divisão
+
+#### Seletor de saída
 
 http://ba.mirror.garr.it/1/groundup/arithmetic_logic_unit.html http://alex9ufoexploer.blogspot.com.br/2013/12/how-do-computers-do-math.html
