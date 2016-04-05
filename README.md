@@ -16,7 +16,7 @@ Para este EP, a ALU deverá fazer as seguintes operações aritméticas sobre n�
 ### Descrição da ALU
 A ALU deverá ter 8 bits e operar com complemento de 2, ou seja, os valores de entrada ou saída estão contidos no intervalo [−128, 127].
 
-Utilizamos a funcionalidade do logisim que permitiu modularizar as operações. Deste modo temos arquivos distintos para soma (SomaLib.circ), quociente (QuocLib.circ) e multiplicação (MultLib.circ) e um principal ALU.circ que junta todos para realizar as operações aritméticas da primeira parte do projeto.
+Utilizamos a funcionalidade do logisim que permitiu modularizar as operações. Deste modo temos arquivos distintos para soma (SomaLib.circ), quociente (QuocLib.circ) e multiplicação (MultLib.circ) e um principal (ALU.circ) que junta todos para realizar as operações aritméticas da primeira parte do projeto.
 
 #### Entrada
 Para modificar os valores de entrada da ALU utilizaremos pinos de entrada. A ALU possui os seguintes pinos de entrada:
@@ -48,5 +48,9 @@ O pino de saída que indica overflow deverá ter valor 1 caso o mesmo ocorra, e 
 
 - Se na soma de dois números positivos o resultado dá negativo ocorre overflow.
 - Se na soma de dois números negativos o resultado dá positivo ocorre overflow.
+
+### Circuito
+
+![Imagem base do circuito](circuito.png)
 
 http://ba.mirror.garr.it/1/groundup/arithmetic_logic_unit.html http://alex9ufoexploer.blogspot.com.br/2013/12/how-do-computers-do-math.html
