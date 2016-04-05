@@ -55,7 +55,7 @@ O circuito é dividido em 3 partes: uma para a soma e subtração, uma para a mu
 ![Imagem base do circuito](circuito.png)
 
 #### Soma e subtração
-As duas operações ficam na mesma parte do circuito por serem operações irmãs. Em ambas ocorre a soma de 8 bits, porém na operação de subtração o sinal do operando B é trocado (SC - signal change), e isto é controlado pelo valor de C1 (derivado das operações do seletor de saída que vale 1 para subtração e 0 para soma) na entrada do demultiplexador acoplado a B na parte de soma e subtração. Após a troca de sinal (ou não), é realizada a soma de 8 bits que retorna se houve overflow ou não (OF01) e o resultado da operação (R01).
+As duas operações ficam na mesma parte do circuito por serem operações irmãs. Em ambas ocorre a soma de 8 bits, porém na operação de subtração o sinal do operando B é trocado (SC - signal change), e isto é indicado pelo valor de C1 (derivado das operações do seletor de saída que vale 1 para subtração e 0 para soma) na entrada do demultiplexador acoplado a B na parte de soma e subtração. Após a troca de sinal (ou não), é realizada a soma de 8 bits que retorna se houve overflow ou não (OF01) e o resultado da operação (R01).
 
 ##### Circuito da soma de 8 bits
 ![Somador de 8 bits](S8.png)
@@ -64,11 +64,16 @@ O circuito da soma de 8 bits é formado por uma cadeia de operações de soma de
 
 ![Full adder](S1.png)
 
-#### Multiplicação
+#### Multiplicação e divisão
+As duas operações ficam na mesma partes por realizarem uma checagem de sinal, ou seja, as operações em si são realizadas somente com números positivos (em casos de números negativos ocorre a troca de sinal), a verificação do sinal é aplicada direto no resultado das operações.
+
+##### Inversor de sinal
+Por ter que fazer a verificação de sinal na multiplicação e divisão, encontra-se acoplado à parte de multiplicação e divisão um inversor de sinal que é um tratamento para um resultado temporário (RTMP) de qualquer uma das operações da ALU em que ocorre troca de sinal do resultado somente em casos em que a operação do seletor é uma multiplicação ou divisão indicado pelo valor de um AND entre C2 (derivado das operações do seletor de saída que vale 1 para operação de multiplicação ou divisão e vale 0 para as demais) e o resultado do XOR dos bits mais significativos de cada operando. O resultado com troca de sinal ou não é repassado para a saída definitiva R.
+
 
 ##### Circuito da multiplicação
-
-#### Divisão
+A operação de multiplicação consiste analisar o multiplicador bit a bit e a para cada bit analisado realizar um AND entre todos os bits do multiplicando.
+Para o 1º bit do multiplicador (bit numero n=0, contando-se da direita para a esquerda), como primeiro passo, realiza-se n shifts no multiplicando e então faz-se um AND entre este bit n do multiplicador e todos os 8-n bits do multiplicando, o resultado é guardado e somado bit a bit com o proximo resultado, obtido  agora analisando o 2º bit do multiplicador (bit numero n=1, contando-se da direita para a esquerda), como primeiro passo, realiza-se n (agora com n=1) shifts no multiplicando e então faz-se um AND entre este bit n do multiplicador e todos os 8-n bits do multiplicando, o resultado é guardado e somado bit a bit com o proximo resultado obtido. Este procedimento é realizado recursivamente até n=7. Como antes de cada shift obtemos um bit do resultado desejado, o resultado (R2) é a composição desses bits. O overflow ocorre quando na última soma antes de cada shift ocorre overflow, deste forma o overflow da multiplicação é um OR com todos os valores de overflow para a última soma antes de cada shift.
 
 ##### Circuito da divisão
 
