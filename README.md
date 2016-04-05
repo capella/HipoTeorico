@@ -51,6 +51,6 @@ O pino de saída que indica overflow deverá ter valor 1 caso o mesmo ocorra, e 
 
 ### Circuito
 
-![Imagem base do circuito](circuito.png)
+![Imagem base do circuito.png](circuito.png)
 
 http://ba.mirror.garr.it/1/groundup/arithmetic_logic_unit.html http://alex9ufoexploer.blogspot.com.br/2013/12/how-do-computers-do-math.html
