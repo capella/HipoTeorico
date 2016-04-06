@@ -100,7 +100,9 @@ int main (int argn, char *argv[] ) {
     return 0;
 }
 ```
-Note que a divizão apresenta erros para números negativos, no entanto nossa ALU impede que isso ocorra.
+Note que a divisão apresenta erros para números negativos, no entanto nossa ALU impede que isso ocorra.
+
+É interessante notar que no resto da divisão (%) se existe a operação com dois números negativos o resultado será o um número possivtivo como se a entrada fosse dois positivos. Já qunado há um número negativo e outro positivo a saída do resto da divisão será um número negativo. Exemplo: `(-21)%20 = -1`.
 
 #### Seletor de saída
 O seletor de saída faz 3 operações que dependem dos valores do seletores da entrada S. A primeira das operações do seletor é dar valor para dois códigos C1 e C2 (através de um decodificador) que indicam circunstâncias para as operações; o C1 indica se a operação é uma subtração e o C2 indica se a operação é uma multiplicação, ou quociente ou resto. Outra operação do seletor é receber 4 entradas de resultados das operações e de acordo com o valor do seletor em um multiplexador filtrar qual entrada sair, esta saída é uma saída temporária que receberá tratamento no inversor de sinal. A última operaçao é tratar o overflow, do mesmo modo que os resultados das operações, os resultados de overflow (OF01 para a soma e subtração e OF2 para a multiplicação) e de acordo com o seletor em outro multiplexador filtrar qual overflow é o da saída definitiva de overflow (of).
