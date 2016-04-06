@@ -67,7 +67,9 @@ Por ter que fazer a verificação de sinal na multiplicação e divisão, encont
 
 ##### Circuito da multiplicação
 A operação de multiplicação consiste analisar o multiplicador bit a bit e a para cada bit analisado realizar um AND entre todos os bits do multiplicando.
-Para o 1º bit do multiplicador (bit numero n=0, contando-se da direita para a esquerda), como primeiro passo, realiza-se n shifts no multiplicando e então faz-se um AND entre este bit n do multiplicador e todos os 8-n bits do multiplicando, o resultado é guardado e somado bit a bit com o proximo resultado, obtido  agora analisando o 2º bit do multiplicador (bit numero n=1, contando-se da direita para a esquerda), como primeiro passo, realiza-se n (agora com n=1) shifts no multiplicando e então faz-se um AND entre este bit n do multiplicador e todos os 8-n bits do multiplicando, o resultado é guardado e somado bit a bit com o proximo resultado obtido. Este procedimento é realizado recursivamente até n=7. Como antes de cada shift obtemos um bit do resultado desejado, o resultado (R2) é a composição desses bits. O overflow ocorre quando na última soma antes de cada shift ocorre overflow, deste forma o overflow da multiplicação (OF2) é um OR com todos os valores de overflow para a última soma antes de cada shift.
+Para o 1º bit do multiplicador (bit numero n=0, contando-se da direita para a esquerda), como primeiro passo, realiza-se n shifts no multiplicando e então faz-se um AND entre este bit n do multiplicador e todos os 8-n bits do multiplicando, o resultado é guardado e somado bit a bit com o proximo resultado, obtido  agora analisando o 2º bit do multiplicador (bit numero n=1, contando-se da direita para a esquerda), como primeiro passo, realiza-se n (agora com n=1) shifts no multiplicando e então faz-se um AND entre este bit n do multiplicador e todos os 8-n bits do multiplicando, o resultado é guardado e somado bit a bit com o proximo resultado obtido. Este procedimento é realizado recursivamente até n=7. Como antes de cada shift obtemos um bit do resultado desejado, o resultado (R2) é a composição desses bits.
+
+É interessante notar que em nossa multiplicação operamos dois números positivos de 8 bits. Como resultado obtemos um número de 16 bits. Como nossa saída está limitada a um número positivo de 8 bits, Verificamos se os bits (R_15 R_14 R_13 R_12 R_11 R_10 R_09 R_08 R_07) são diferentes de 0, caso algum seja 1 consideramos que ocorra um overflow. Esse pequeno método implica em um pequeno problema final na ALU, ele é que -64*2 resulta em -128 com overflow ligado.
 
 ##### Circuito da divisão
 Essa parte do circuito é responsável por calcular o resto da divisão e o quociente simultaneamente. Ela segue o algoritmo padrão da divisão que conhecemos.
@@ -100,9 +102,10 @@ int main (int argn, char *argv[] ) {
     return 0;
 }
 ```
+
 Note que a divisão apresenta erros para números negativos, no entanto nossa ALU impede que isso ocorra.
 
-É interessante notar que no resto da divisão (%) se existe a operação com dois números negativos o resultado será o um número possivtivo como se a entrada fosse dois positivos. Já qunado há um número negativo e outro positivo a saída do resto da divisão será um número negativo. Exemplo: `(-21)%20 = -1`.
+É interessante notar que no resto da divisão (%) se existe a operação com dois números negativos o resultado será o um número possivtivo como se a entrada fosse dois positivos. Já quando há um número negativo e outro positivo a saída do resto da divisão será um número negativo. Exemplo: `(-21)%20 = -1`.
 
 #### Seletor de saída
 O seletor de saída faz 3 operações que dependem dos valores do seletores da entrada S. A primeira das operações do seletor é dar valor para dois códigos C1 e C2 (através de um decodificador) que indicam circunstâncias para as operações; o C1 indica se a operação é uma subtração e o C2 indica se a operação é uma multiplicação, ou quociente ou resto. Outra operação do seletor é receber 4 entradas de resultados das operações e de acordo com o valor do seletor em um multiplexador filtrar qual entrada sair, esta saída é uma saída temporária que receberá tratamento no inversor de sinal. A última operaçao é tratar o overflow, do mesmo modo que os resultados das operações, os resultados de overflow (OF01 para a soma e subtração e OF2 para a multiplicação) e de acordo com o seletor em outro multiplexador filtrar qual overflow é o da saída definitiva de overflow (of).
