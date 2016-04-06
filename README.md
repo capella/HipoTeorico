@@ -49,7 +49,7 @@ O pino de saída que indica overflow deverá ter valor 1 caso o mesmo ocorra, e 
 ### Circuito
 O circuito é dividido em 3 partes: uma para a soma e subtração, uma para a multiplicação e divisão e uma para o seletor de saída.
 
-![Imagem base do circuito](](images/circuito.png)
+![Imagem base do circuito](images/circuito.png)
 
 #### Soma e subtração
 As duas operações ficam na mesma parte do circuito por serem operações irmãs. Em ambas ocorre a soma de 8 bits, porém na operação de subtração o sinal do operando B é trocado (SC - signal change), e isto é indicado pelo valor de C1 (derivado das operações do seletor de saída que vale 1 para subtração e 0 para soma) na entrada do demultiplexador acoplado a B na parte de soma e subtração. Após a troca de sinal (ou não), é realizada a soma de 8 bits que retorna se houve overflow ou não (OF01) e o resultado da operação (R01).
