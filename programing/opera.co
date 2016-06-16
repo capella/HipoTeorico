@@ -1,0 +1,174 @@
+# Area para declarar variaveis
+	$mais 43 		# Simbolo do +
+	$menos 45 		# Simbolo do -
+	$vezes 42 		# Simbolo do *
+	$div 47 		# Simbolo do /
+	$resto 37 		# Simbolo do %
+	$line 10		# Linha
+	$buffer
+	$a
+	$b
+	$pot 100
+	$zero 48		# Simbolo 0
+	$nine 58		# Simbolo 9
+	$o 0			# Numero 0
+	$i 1			# Numero 1
+	$tmp
+	$tmpacu
+	$dezmil 10000	# Numero 100
+	$mil 1000		# Numero 100
+	$cem 100		# Numero 100
+	$dez 10			# Numero 10
+	$none 32
+	$neg -1
+	$printc 0
+	$c
+
+__main
+	null
+
+	# realiza a leitura do segundo
+	__read1
+	read $buffer
+	AC from $buffer
+	AC - $none
+	if == go __end1
+	AC from $buffer
+	AC - $zero
+	AC to $tmp
+	AC from $a
+	AC * $dez
+	AC + $tmp
+	AC to $a
+	go __read1
+	__end1
+
+	# realiza a leitura do segundo digito
+	__read2
+	read $buffer
+	AC from $buffer
+	AC - $zero
+	if < go __end2
+	AC from $buffer
+	AC - $nine
+	if > go __end2
+	AC from $buffer
+	AC - $zero
+	AC to $tmp
+	AC from $b
+	AC * $dez
+	AC + $tmp
+	AC to $b
+	go __read2
+	__end2
+
+
+	print $mais
+	print $none
+	AC from $a
+	AC + $b
+	AC to $c
+	# impreme o valor de c
+	go __printc
+	__ret00
+	AC from $printc
+	AC + $i
+	AC to $printc
+
+	print $menos
+	print $none
+	AC from $a
+	AC - $b
+	AC to $c
+	# impreme o valor de c
+	go __printc
+	__ret01
+	AC from $printc
+	AC + $i
+	AC to $printc
+
+	print $vezes
+	print $none
+	AC from $a
+	AC * $b
+	AC to $c
+	# impreme o valor de c
+	go __printc
+	__ret02
+	AC from $printc
+	AC + $i
+	AC to $printc
+
+
+	print $div
+	print $none
+	AC from $a
+	AC / $b
+	AC to $c
+	# impreme o valor de c
+	go __printc
+	__ret03
+	AC from $printc
+	AC + $i
+	AC to $printc
+
+
+	print $resto
+	print $none
+	AC from $a
+	AC % $b
+	AC to $c
+	# impreme o valor de c
+	go __printc
+	__ret04
+	AC from $printc
+	AC + $i
+	AC to $printc
+
+	end
+
+__printc
+	AC from $c
+	AC / $dezmil
+	AC + $zero
+	AC to $tmp
+	print $tmp
+
+	AC from $c
+	AC % $dezmil
+	AC / $mil
+	AC + $zero
+	AC to $tmp
+	print $tmp
+
+	AC from $c
+	AC % $mil
+	AC / $cem
+	AC + $zero
+	AC to $tmp
+	print $tmp
+
+	AC from $c
+	AC % $cem
+	AC / $dez
+	AC + $zero
+	AC to $tmp
+	print $tmp
+
+	AC from $c
+	AC % $dez
+	AC + $zero
+	AC to $tmp
+	print $tmp
+	print $line
+	
+	AC from $printc
+	if = go __ret00
+	AC - $i
+	if = go __ret01
+	AC - $i
+	if = go __ret02
+	AC - $i
+	if = go __ret03
+	AC - $i
+	if = go __ret04

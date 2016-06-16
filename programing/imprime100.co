@@ -1,0 +1,42 @@
+# Area para declarar variaveis
+	$count 0
+	$line 10
+	$one 1
+	$max 100
+	$tmp
+	$zero 48
+	$base 10
+
+__main
+	null
+	__jump
+
+	go __print_count
+	__ret
+	print $line
+
+	AC from $count
+	AC + $one
+	AC to $count
+
+	AC from $max
+	AC - $count
+
+	if != go __jump
+
+	end
+
+__print_count
+	AC from $count
+	AC / $base
+	AC + $zero
+	AC to $tmp
+	print $tmp
+
+	AC from $count
+	AC % $base
+	AC + $zero
+	AC to $tmp
+	print $tmp
+	go __ret
+
