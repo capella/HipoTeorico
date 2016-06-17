@@ -1,0 +1,64 @@
+# Area para declarar variaveis
+	$max 32768
+	$n 1
+	$na 0
+	$tmp
+
+	$line 10		# Linha
+	$dezmil 10000	# Numero 100
+	$mil 1000		# Numero 100
+	$cem 100		# Numero 100
+	$dez 10			# Numero 10
+	$zero 48		# Simbolo 0
+
+__main
+	null
+
+	__next
+	AC from $na
+	AC / $dezmil
+	AC + $zero
+	AC to $tmp
+	print $tmp
+
+	AC from $na
+	AC % $dezmil
+	AC / $mil
+	AC + $zero
+	AC to $tmp
+	print $tmp
+
+	AC from $na
+	AC % $mil
+	AC / $cem
+	AC + $zero
+	AC to $tmp
+	print $tmp
+
+	AC from $na
+	AC % $cem
+	AC / $dez
+	AC + $zero
+	AC to $tmp
+	print $tmp
+
+	AC from $na
+	AC % $dez
+	AC + $zero
+	AC to $tmp
+	print $tmp
+	print $line
+
+	AC from $n
+	AC to $tmp
+	AC + $na
+	AC to $n
+	AC from $tmp
+	AC to $na
+	
+	AC from $na
+	AC - $max
+	if < go __next
+
+	end
+	
