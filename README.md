@@ -65,3 +65,16 @@ A implementação das instrução de entrada e saída foi realizada do mesmo mod
 ---------|--------------|-----------|--------------------------------------------
    31    |     0x1F     | {INN} XY  | Lê da entrada e armazena na posição XY
    41    |     0x29     | {PRN} XY  | Escreve na saída o conteúdo da posição XY
+
+### Circuito
+
+O circuito consiste na remodelagem dos anteriores, tanto a ALU quanto o FDX. O FDX foi remodelado para acoplar a ALU e receber operações de entrada e saída. A principal mudança foi a criação de um grid das instruções para o controlador determinar os pinos de saída nos diversos pontos do sistema e deixar o circuito mais entendível, mantendo o mesmo esquema do circuito sequencial da etapa anterior.
+
+<!-- colocar img do circuito -->
+<!-- colocar img do controlador -->
+
+### Programa auxiliar
+
+Para testar melhor o programa, criamos um mecanismo de interpretação de um pseudocódigo com uma estrutura muito comum a outras linguagens de programação, seria um modo intuitivo de criar o arquivo de entrada para a SRAM do Logisim. Na pasta programing estão três exemplos de programas feitos na pseudolinguagem criada: fibonacci.co (gera a sequência fibonacci), imprime100.co (imprime os 100 primeiros números naturais) e opera.co (recebe dois valores e imprime o resultado das operações da ALU entre o primeiro e o segundo).
+
+Um programa em python recebe um desses arquivos criados na pseudolinguagem e gera um arquivo .cos que é o arquivo que será redirecionado para a RAM do logisim, na mesma pasta está um makefile que executa os exemplos.
