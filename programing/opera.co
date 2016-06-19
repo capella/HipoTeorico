@@ -127,7 +127,20 @@ __main
 	end
 
 __printc
+	print $none
+	print $none
+	print $none
 	AC from $c
+	if >= go __print_max
+	print $menos
+	AC from $o
+	AC - $c
+	AC to $c
+	go __after_signal
+	__print_max
+	print $mais
+	__after_signal
+
 	AC / $dezmil
 	AC + $zero
 	AC to $tmp

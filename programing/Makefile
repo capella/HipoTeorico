@@ -18,6 +18,7 @@ opera:
 	echo "1000 0" | java -jar ../../logisim.jar ../FDX.circ -tty tty -load opera.cos 1>&1 2>/dev/null
 	echo "42 42" | java -jar ../../logisim.jar ../FDX.circ -tty tty -load opera.cos 1>&1 2>/dev/null
 	echo "1001 100" | java -jar ../../logisim.jar ../FDX.circ -tty tty -load opera.cos 1>&1 2>/dev/null
+	echo "10 100" | java -jar ../../logisim.jar ../FDX.circ -tty tty -load opera.cos 1>&1 2>/dev/null
 
 fibonacci:
 	python3 copiler.py fibonacci.co > fibonacci.cos
