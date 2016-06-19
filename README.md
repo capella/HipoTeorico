@@ -62,7 +62,7 @@ A entrada e saida foram feitos de forma que o usuário encaminha valores pelo te
 A implementação das instrução de entrada e saída foi realizada do mesmo modo das demais instruções, sendo que os valores inseridos da entrada são recebidos por um componente teclado do Logisim e a saída é feita através de um componente terminal do Logisim.
 
  Decimal |  Hexadecimal | Instrução | Comando  |              Descrição
----------|--------------|-----------|------------------------------------------------------
+---------|--------------|-----------|----------|-------------------------------------------
    31    |     0x1F     | {INN} XY  |  read XY | Lê da entrada e armazena na posição XY
    41    |     0x29     | {PRN} XY  | print XY | Escreve na saída o conteúdo da posição XY
 
