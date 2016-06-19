@@ -20,7 +20,6 @@
 	$cem 100		# Numero 100
 	$dez 10			# Numero 10
 	$none 32
-	$neg -1
 	$printc 0
 	$c
 
