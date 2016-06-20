@@ -57,9 +57,9 @@ As instruções de desvios condicionais foram implementadas no controlador junto
 
 #### Entrada/Saída
 
-A entrada e saida foram feitos de forma que o usuário encaminha valores pelo terminal na faixa permitida pelo programa e a saída é exibida no terminal. Para testar o programa, criamos um mecanismo de pseudocódigo intuitivo que é interpretado por um programa em python que gera um arquivo que é o que vai ser armazenado na RAM do Logisim.
+A entrada e saida foram feitos de forma que o usuário encaminha valores pelo terminal na faixa permitida pelo programa e a saída é exibida no terminal. Para testar o programa, criamos um mecanismo de pseudocódigo intuitivo que é interpretado por um programa em python, gerando um arquivo de saída para ser armazenado na RAM do Logisim.
 
-A implementação das instrução de entrada e saída foi realizada do mesmo modo das demais instruções, sendo que os valores inseridos da entrada são recebidos por um componente teclado do Logisim e a saída é feita através de um componente terminal do Logisim.
+A implementação das instruções de entrada e saída foi realizada do mesmo modo das demais instruções, sendo que os valores inseridos da entrada são recebidos por um componente teclado do Logisim e a saída é feita através de um componente terminal do Logisim.
 
  Decimal |  Hexadecimal | Instrução | Comando  |              Descrição
 ---------|--------------|-----------|----------|-------------------------------------------
